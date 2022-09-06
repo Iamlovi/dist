@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Новости</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20220906164337">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script>
+		// Initialize and add the map
+		function initMap() {
+			// The location of Uluru
+			const minerals = {
+				lat: 51.089447428707224,
+				lng: 71.419373961768
+			};
+			// The map, centered at Uluru
+			const map = new google.maps.Map(document.getElementById("map"), {
+				zoom: 17,
+				center: minerals,
+				mapId: '13791bccb1a8c51',
+				mapTypeControl: false,
+				streetViewControl: false,
+				fullscreenControl: false,
+			});
+			// The marker, positioned at Uluru
+			const marker = new google.maps.Marker({
+				position: minerals,
+				map: map,
+				animation: google.maps.Animation.DROP,
+				icon: "img/icons/location.svg",
+				title: "Click to zoom",
+			});
+			marker.addListener("click", toggleBounce);
+
+			function toggleBounce() {
+				if (marker.getAnimation() !== null) {
+					marker.setAnimation(null);
+				} else {
+					marker.setAnimation(google.maps.Animation.BOUNCE);
+				}
+			}
+			map.addListener("center_changed", () => {
+				// 3 seconds after the center of the map has changed, pan back to the
+				// marker.
+				window.setTimeout(() => {
+					map.panTo(marker.getPosition());
+				}, 3000);
+			});
+			marker.addListener("click", () => {
+				map.setZoom(18);
+				map.setCenter(marker.getPosition());
+			});
+		}
+		window.initMap = initMap;
+	</script>
+</head>
+
+<body>
+	<div class="wrapper wrapper_single">
+		<header class="header header_single">
+			<div class="header__container">
+				<a href="home.html" class="header__logo"><picture><source srcset="img/header/logo.webp" type="image/webp"><img src="img/header/logo.png" alt="logo"></picture></a>
+				<div class="header__menu menu">
+					<button type="button" class="menu__icon icon-menu"><span></span></button>
+					<nav class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item"><a href="home.html" class="menu__link">Главная</a></li>
+							<li class="menu__item"><a href="about.html" class="menu__link">О компании</a></li>
+							<li class="menu__item"><a href="services.html" class="menu__link">Услуги</a></li>
+							<li class="menu__item"><a href="news.html" class="menu__link">Новости</a></li>
+							<li class="menu__item"><a href="contacts.html" class="menu__link">Контакты</a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="header__actions" data-da=".menu__body, 767.8">
+					<div class="header__action header-item header-item_email">
+						<div class="header-item__icon">
+							<img src="img/header/email.svg" alt="letter">
+						</div>
+						<a href="mailto:info@moperating.kz" class="header-item__link">
+							<span class="header-item__email">info@moperating.kz</span>
+							<span class="header-item__text">Написать нам</span>
+						</a>
+					</div>
+					<div class="header__action header-item header-item_phone">
+						<div class="header-item__icon">
+							<img src="img/header/phone.svg" alt="phone">
+						</div>
+						<a href="tel:+77172247280" class="header-item__link">
+							<span class="header-item__phone-number">+7 (7172) 24 72 80</span>
+							<span class="header-item__text">Заказать звонок</span>
+						</a>
+					</div>
+					<div class="header__action header-item header-item_search">
+						<a href="search.html" class="header-item__search-btn _icon-search"></a>
+					</div>
+					<div class="header__action header-item header-item_lang">
+						<select name="form[language]" class="header-item__lang-select ">
+							<option value="RU">🇷🇺&emsp;Русский</option>
+							<option value="KZ">🇰🇿&emsp;Казахский</option>
+							<option value="EN">🇬🇧&emsp;Английский</option>
+						</select>
+					</div>
+
+				</div>
+			</div>
+		</header>
+		<main class="page">
+
+			<div class="page__breadcrumbs breadcrumbs breadcrumbs_blue">
+				<div class="breadcrumbs__container">
+					<ul class="breadcrumbs__list">
+						<li class="breadcrumbs__item "><a href="home.html" class="breadcrumbs__link">Главная</a></li>
+						<li class="breadcrumbs__item _icon-arrow-down"><a href="#/" class="breadcrumbs__link">Новости</a></li>
+					</ul>
+				</div>
+			</div>
+			<section class="page__news news">
+				<div class="news__container news__container_columns">
+					<div class="news__body">
+						<h1 class="news__title title">Буровые работы новость</h1>
+						<div class="news__article-text">
+							<p>
+								Мinerals Operating – это молодая компания, которая оказывает услуги в сфере недропользования на
+								территории Казахстана. Мы одна из первых компаний являющихся лицензированным консультантом в
+								сфере
+								минеральных ресурсов (лицензия №AFSA-A-LA-2020-0004). Мinerals Operating зарегистрирована в
+								Международном Финансовом Центре «Астана» (МФЦА) и осуществляет деятельность, основанную на
+								нормах и
+								принципах Английского общего права.
+							</p>
+
+							<p>
+								МФЦА – это уникальный центр, который использует лучшие практики и подходы международных
+								финансовых
+								центров и сотрудничает с крупными корпорациями и небольшими компаниями, недавно появившимися на
+								рынке.
+							</p>
+
+							<p>
+								МФЦА – это уникальный центр, который использует лучшие практики и подходы международных
+								финансовых
+								центров и сотрудничает с крупными корпорациями и небольшими компаниями, недавно появившимися на
+								рынке.
+							</p>
+							<p>
+								Мinerals Operating – это молодая компания, которая оказывает услуги в сфере недропользования на
+								территории Казахстана. Мы одна из первых компаний являющихся лицензированным консультантом в
+								сфере
+								минеральных ресурсов (лицензия №AFSA-A-LA-2020-0004). Мinerals Operating зарегистрирована в
+								Международном Финансовом Центре «Астана» (МФЦА) и осуществляет деятельность, основанную на
+								нормах и
+								принципах Английского общего права.
+							</p>
+
+							<p>
+								МФЦА – это уникальный центр, который использует лучшие практики и подходы международных
+								финансовых
+								центров и сотрудничает с крупными корпорациями и небольшими компаниями, недавно появившимися на
+								рынке.
+							</p>
+
+							<p>
+								МФЦА – это уникальный центр, который использует лучшие практики и подходы международных
+								финансовых
+								центров и сотрудничает с крупными корпорациями и небольшими компаниями, недавно появившимися на
+								рынке.
+							</p>
+							<p>
+								Мinerals Operating – это молодая компания, которая оказывает услуги в сфере недропользования на
+								территории Казахстана. Мы одна из первых компаний являющихся лицензированным консультантом в
+								сфере
+								минеральных ресурсов (лицензия №AFSA-A-LA-2020-0004). Мinerals Operating зарегистрирована в
+								Международном Финансовом Центре «Астана» (МФЦА) и осуществляет деятельность, основанную на
+								нормах и
+								принципах Английского общего права.
+							</p>
+
+							<p>
+								МФЦА – это уникальный центр, который использует лучшие практики и подходы международных
+								финансовых
+								центров и сотрудничает с крупными корпорациями и небольшими компаниями, недавно появившимися на
+								рынке.
+							</p>
+
+							<p>
+								МФЦА – это уникальный центр, который использует лучшие практики и подходы международных
+								финансовых
+								центров и сотрудничает с крупными корпорациями и небольшими компаниями, недавно появившимися на
+								рынке.
+							</p>
+						</div>
+					</div>
+
+					<div class="news__sidebar">
+						<div class="news__box">
+							<div class="news__title">Последние новости</div>
+							<div class="news__inner">
+								<div class="news__item item-news item-news-sidebar">
+									<a href="#/" class="item-news__image-ibg">
+										<picture><source srcset="img/single/news/01.webp" type="image/webp"><img src="img/single/news/01.jpg" alt=""></picture>
+									</a>
+									<div class="item-news__body">
+										<a href="#/" class="item-news__title">Проектирование горных
+											производств</a>
+										<div class="item-news__desc">Мinerals Operating – это молодая компания, которая</div>
+										<div class="item-news__date">12.21.2014</div>
+									</div>
+								</div>
+								<div class="news__item item-news item-news-sidebar">
+									<a href="#/" class="item-news__image-ibg">
+										<picture><source srcset="img/single/news/01.webp" type="image/webp"><img src="img/single/news/01.jpg" alt=""></picture>
+									</a>
+									<div class="item-news__body">
+										<a href="#/" class="item-news__title">Проектирование горных
+											производств</a>
+										<div class="item-news__desc">Мinerals Operating – это молодая компания, которая</div>
+										<div class="item-news__date">12.21.2014</div>
+									</div>
+								</div>
+								<div class="news__item item-news item-news-sidebar">
+									<a href="#/" class="item-news__image-ibg">
+										<picture><source srcset="img/single/news/01.webp" type="image/webp"><img src="img/single/news/01.jpg" alt=""></picture>
+									</a>
+									<div class="item-news__body">
+										<a href="#/" class="item-news__title">Проектирование горных
+											производств</a>
+										<div class="item-news__desc">Мinerals Operating – это молодая компания, которая</div>
+										<div class="item-news__date">12.21.2014</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="news__box">
+							<div class="news__title">Интересные новости</div>
+							<div class="news__inner">
+								<div class="news__item item-news item-news-sidebar">
+									<a href="#/" class="item-news__image-ibg">
+										<picture><source srcset="img/single/news/01.webp" type="image/webp"><img src="img/single/news/01.jpg" alt=""></picture>
+									</a>
+									<div class="item-news__body">
+										<a href="#/" class="item-news__title">Проектирование горных
+											производств</a>
+										<div class="item-news__desc">Мinerals Operating – это молодая компания, которая</div>
+										<div class="item-news__date">12.21.2014</div>
+									</div>
+								</div>
+								<div class="news__item item-news item-news-sidebar">
+									<a href="#/" class="item-news__image-ibg">
+										<picture><source srcset="img/single/news/01.webp" type="image/webp"><img src="img/single/news/01.jpg" alt=""></picture>
+									</a>
+									<div class="item-news__body">
+										<a href="#/" class="item-news__title">Проектирование горных
+											производств</a>
+										<div class="item-news__desc">Мinerals Operating – это молодая компания, которая</div>
+										<div class="item-news__date">12.21.2014</div>
+									</div>
+								</div>
+								<div class="news__item item-news item-news-sidebar">
+									<a href="#/" class="item-news__image-ibg">
+										<picture><source srcset="img/single/news/01.webp" type="image/webp"><img src="img/single/news/01.jpg" alt=""></picture>
+									</a>
+									<div class="item-news__body">
+										<a href="#/" class="item-news__title">Проектирование горных
+											производств</a>
+										<div class="item-news__desc">Мinerals Operating – это молодая компания, которая</div>
+										<div class="item-news__date">12.21.2014</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="news__box">
+							<div class="news__title">Топ статьи</div>
+							<div class="news__inner">
+								<div class="news__item item-news item-news-sidebar">
+									<a href="#/" class="item-news__image-ibg">
+										<picture><source srcset="img/single/news/01.webp" type="image/webp"><img src="img/single/news/01.jpg" alt=""></picture>
+									</a>
+									<div class="item-news__body">
+										<a href="#/" class="item-news__title">Проектирование горных
+											производств</a>
+										<div class="item-news__desc">Мinerals Operating – это молодая компания, которая</div>
+										<div class="item-news__date">12.21.2014</div>
+									</div>
+								</div>
+								<div class="news__item item-news item-news-sidebar">
+									<a href="#/" class="item-news__image-ibg">
+										<picture><source srcset="img/single/news/01.webp" type="image/webp"><img src="img/single/news/01.jpg" alt=""></picture>
+									</a>
+									<div class="item-news__body">
+										<a href="#/" class="item-news__title">Проектирование горных
+											производств</a>
+										<div class="item-news__desc">Мinerals Operating – это молодая компания, которая</div>
+										<div class="item-news__date">12.21.2014</div>
+									</div>
+								</div>
+								<div class="news__item item-news item-news-sidebar">
+									<a href="#/" class="item-news__image-ibg">
+										<picture><source srcset="img/single/news/01.webp" type="image/webp"><img src="img/single/news/01.jpg" alt=""></picture>
+									</a>
+									<div class="item-news__body">
+										<a href="#/" class="item-news__title">Проектирование горных
+											производств</a>
+										<div class="item-news__desc">Мinerals Operating – это молодая компания, которая</div>
+										<div class="item-news__date">12.21.2014</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</section>
+
+
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__body">
+					<div class="footer__about">
+						<a href="#/" class="footer__logo"><picture><source srcset="img/header/logo.webp" type="image/webp"><img src="img/header/logo.png" alt=""></picture></a>
+						<div class="footer__desc">
+							Мinerals Operating – это молодая компания, которая оказывает услуги в сфере недропользования на
+							территории
+							Казахстана. Мы одна из первых компаний являющихся лицензированным консультантом в сфере минеральных
+							ресурсов
+							(лицензия №AFSA-A-LA-2020-0004).
+						</div>
+					</div>
+					<div data-spollers="577.8" class="footer__menus">
+						<nav class="footer__menu menu-footer">
+							<button type="button" data-spoller class="menu-footer__title _icon-arrow-down">Основное</button>
+							<ul class="menu-footer__list">
+								<li class="menu-footer__item"><a href="" class="menu-footer__link">Главная</a></li>
+								<li class="menu-footer__item"><a href="" class="menu-footer__link">О нас</a></li>
+								<li class="menu-footer__item"><a href="" class="menu-footer__link">Услуги</a></li>
+								<li class="menu-footer__item"><a href="" class="menu-footer__link">Вакансии</a></li>
+							</ul>
+						</nav>
+						<nav class="footer__menu menu-footer">
+							<button type="button" data-spoller class="menu-footer__title _icon-arrow-down">Навигация</button>
+							<ul class="menu-footer__list">
+								<li class="menu-footer__item"><a href="" class="menu-footer__link">Контакты</a></li>
+								<li class="menu-footer__item"><a href="" class="menu-footer__link">Помощь</a></li>
+								<li class="menu-footer__item"><a href="" class="menu-footer__link">Политика</a></li>
+								<li class="menu-footer__item"><a href="" class="menu-footer__link">Обратная связь</a></li>
+
+							</ul>
+						</nav>
+						<div class="footer__menu menu-footer menu-footer_contacts">
+							<button type="button" data-spoller class="menu-footer__title _icon-arrow-down">Контакты</button>
+							<div class="menu-footer__body">
+								<p class="menu-footer__address">
+									РК, г. Нур-Султан, Проспект Мангилик Ел, 55/21, этаж 1, Блок C4.2, офис 164
+								</p>
+								<a href="tel:+77172247280" class="menu-footer__phone">
+									<img src="img/icons/phone-blue.svg" alt="">
+									<span>+7 (7172) 24 72 80</span>
+								</a>
+								<p class="menu-footer__social">
+									<a href="#/" class="menu-footer__instagram">
+										<img src="img/icons/instagram.svg" alt="">
+									</a>
+									<a href="#/" class="menu-footer__vk">
+										<img src="img/icons/vk.svg" alt="">
+									</a>
+									<a href="#/" class="menu-footer__facebook">
+										<img src="img/icons/facebook.svg" alt="">
+									</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="footer__copyright">
+					<p>© 2021 Создание сайта <a href="#/">maxico.kz</a></p>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<div id="popup" aria-hidden="true" class="popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<button data-close type="button" class="popup__close">Закрыть</button>
+				<h2 class="popup__title title">Оставить заявку</h2>
+				<form action="#" class="form form_popup">
+					<div class="form__items">
+						<div class="form__item">
+							<input autocomplete="off" type="text" name="form[name]" data-error="Ошибка" placeholder="Ваше имя" class="form__input">
+						</div>
+						<div class="form__item">
+							<input autocomplete="off" type="text" name="form[phone-number]" data-error="Ошибка" placeholder="Ваш телефон" class="form__input">
+						</div>
+						<div class="form__item form__item_text">
+							<textarea name="form[message]" class="form__input form__input_text" placeholder="Сообщение"></textarea>
+						</div>
+					</div>
+					<div class="form__submit">
+						<button type="submit" class="form__button btn">Оформить заявку</button>
+						<p class="form__agree">При нажатии кнопки “отправить”, вы соглашаетесь на обработку данных
+						</p>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="js/app.min.js?_v=20220906164337"></script>
+</body>
+
+</html>
